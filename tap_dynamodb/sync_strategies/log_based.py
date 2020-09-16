@@ -69,7 +69,8 @@ def get_shard_records(streams_client, stream_arn, shard, sequence_number):
 
     # This will loop indefinitely if called on open shards
     while shard_iterator:
-        records = streams_client.get_records(ShardIterator=shard_iterator, Limit=1000)
+        records = streams_client.get_records(ShardIterator=shard_iterator,
+                                             Limit=dynamodb.DEFAULT_RECORD_BATCH_SIZE)
 
         for record in records['Records']:
             yield record

@@ -11,7 +11,7 @@ LOGGER = singer.get_logger()
 def scan_table(table_name, projection, last_evaluated_key, config):
     scan_params = {
         'TableName': table_name,
-        'Limit': 1000
+        'Limit': dynamodb.DEFAULT_RECORD_BATCH_SIZE
     }
 
     if projection is not None:

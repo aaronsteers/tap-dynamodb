@@ -12,6 +12,7 @@ from botocore.exceptions import ClientError
 from botocore.session import Session
 
 LOGGER = singer.get_logger()
+DEFAULT_RECORD_BATCH_SIZE = 1000
 
 def retry_pattern():
     return backoff.on_exception(backoff.expo,
