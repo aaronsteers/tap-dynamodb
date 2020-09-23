@@ -67,6 +67,15 @@ def setup_aws_client(config):
         LOGGER.info("Attempting to assume_role on RoleArn: %s", role_arn)
         boto3.setup_default_session(botocore_session=refreshable_session)
 
+    elif 'aws_access_key_id' in config and 'aws_secret_access_key' in config:
+        LOGGER.info("Attempting to pass AWS credentials from 'aws_access_key_id' and 'aws_secret_access_key' config values")
+        boto3.setup_default_session(
+            aws_access_key_id=config['aws_access_key_id'],
+            aws_secret_access_key=config['aws_secret_access_key'],
+            aws_session_token=config.get('aws_session_token', None)
+        )
+        session = Session()
+
 def get_client(config):
     if config.get('use_local_dynamo'):
         return boto3.client('dynamodb',
