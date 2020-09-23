@@ -8,9 +8,13 @@ spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
 
 ## Configuration
 
-This tap can get it's credentials in a variety of ways, including [environment variables](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#environment-variables), [shared credentials file](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#shared-credentials-file), [AWS config file](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#aws-config-file), [assume role provider](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#assume-role-provider), and [IAM roles](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#iam-roles).
+**Required Settings:**
 
 The config file requires `region_name`.
+
+**Authentication:**
+
+This tap can get it's credentials in a variety of ways, including [environment variables](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#environment-variables), [shared credentials file](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#shared-credentials-file), [AWS config file](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#aws-config-file), [assume role provider](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#assume-role-provider), and [IAM roles](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#iam-roles).
 
 You can optionally add ond of the following sets of configurations:
 
@@ -24,7 +28,7 @@ _To use an external ID, specify the following config options:_
 
 **Option B: Use explicit AWS credentials:**
 
-_To use an external ID, specify the following config options:_
+_To use a specific AWS user, specify at minimum the user's access key and secret key:_
 
 - `aws_access_key_id`
 - `aws_secret_access_key`
